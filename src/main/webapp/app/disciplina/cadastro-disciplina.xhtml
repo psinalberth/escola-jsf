@@ -1,0 +1,36 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:adm="http://github.com/adminfaces"
+                template="/composition/template.xhtml">
+                
+  <ui:define name="title">Cadastrar Disciplina</ui:define>
+  <ui:define name="body">
+    <h:form>
+      <div class="box box-primary">
+         <div class="box-header with-border">
+           
+           <div class="ui-fluid">
+             <div class="buttons">
+           	 <p:commandLink>
+           	   <h:outputText styleClass="fa fa-2x fa-angle-left">
+           	     
+           	   </h:outputText>
+           	   
+           	 </p:commandLink>
+           	 <p:outputLabel value="SSS"></p:outputLabel>
+           </div>
+           <p:separator style="border: 1px solid transparent"></p:separator>
+             <p:panelGrid layout="grid" columns="1">
+               <p:outputLabel value="Descrição" for="descricao" />
+               <p:inputText id="descricao" value="DDD" />
+               <p:commandButton value="Salvar" styleClass="btn-primary"></p:commandButton>
+             </p:panelGrid>
+           </div>
+         </div>
+      </div>
+    </h:form>
+  </ui:define>
+</ui:composition>
