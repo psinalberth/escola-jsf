@@ -6,4 +6,9 @@ import br.ps.escola.repository.ProfessorRepository;
 public class ProfessorDao extends DAO<Professor> implements ProfessorRepository {
 
 	private static final long serialVersionUID = 5439492853740464017L;
+
+	@Override
+	public boolean isExclusaoPermitida(int id) {
+		return false;
+	}
 }

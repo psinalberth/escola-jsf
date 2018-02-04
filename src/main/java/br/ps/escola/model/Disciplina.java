@@ -21,7 +21,7 @@ public class Disciplina extends EntidadeBase {
 	private int id;
 	
 	@NotBlank
-	@Column(name="DESCRICAO", length=100)
+	@Column(name="DESCRICAO", length=100, nullable=false)
 	private String descricao;
 	
 	public int getId() {

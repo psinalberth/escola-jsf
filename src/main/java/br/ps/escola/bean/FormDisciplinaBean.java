@@ -26,6 +26,9 @@ public class FormDisciplinaBean implements Serializable {
 		
 		if (id != null) {
 			disciplina = repository.buscar(id);
+			
+		} else {
+			disciplina = new Disciplina();
 		}
 	}
 	
@@ -34,7 +37,11 @@ public class FormDisciplinaBean implements Serializable {
 	}
 	
 	public void remover() {
-		repository.remover(disciplina);
+		repository.remover(disciplina.getId());
+	}
+	
+	public boolean isExclusaoPermitida() {
+		return repository.isExclusaoPermitida(disciplina.getId());
 	}
 	
 	public Integer getId() {

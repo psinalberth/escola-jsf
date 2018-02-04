@@ -32,7 +32,7 @@ public class ListarDisciplinaBean implements Serializable {
 	public void removerDisciplinas() {
 		
 		if (disciplinasSelecionadas != null) {
-			disciplinasSelecionadas.forEach(disciplina -> repository.remover(disciplina));
+			disciplinasSelecionadas.forEach(disciplina -> repository.remover(disciplina.getId()));
 		}
 	}
 	

@@ -11,6 +11,8 @@ public interface DAORepository<T> extends Serializable {
 	
 	public T buscar(int id);
 	
+	public boolean isExclusaoPermitida(int id);
+	
 	public void remover(T entidade);
 	
 	public void remover(int id);

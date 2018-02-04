@@ -78,6 +78,10 @@ public abstract class EntidadeBase implements Serializable {
 		
 		this.dataCriacao = new Date();
 		this.dataAlteracao = this.dataCriacao;
+		
+		if (this.usuarioAlteracao == null) {
+			this.usuarioAlteracao = "user";
+		}
 	}
 	
 	@PreUpdate

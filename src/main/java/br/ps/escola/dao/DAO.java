@@ -7,18 +7,20 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.transaction.Transactional;
 
 import br.ps.escola.model.EntidadeBase;
 import br.ps.escola.repository.DAORepository;
 
-public class DAO<T extends EntidadeBase> implements DAORepository<T> {
+public abstract class DAO<T extends EntidadeBase> implements DAORepository<T> {
 	
 	private static final long serialVersionUID = 5771962610483591766L;
 	
 	@Inject
-	EntityManager entityManager;
+	private EntityManager entityManager;
 	
 	@Override
+	@Transactional
 	public void salvar(T entidade) {
 		entityManager.merge(entidade);
 	}
@@ -51,16 +53,24 @@ public class DAO<T extends EntidadeBase> implements DAORepository<T> {
 
 	@Override
 	public T buscar(int id) {
-		return entityManager.find(null, id);
+		return entityManager.find(recuperarTipo(), id);
 	}
 
 	@Override
+	@Transactional
 	public void remover(T entidade) {
 		entityManager.remove(entidade);
+		entityManager.flush();
 	}
 
 	@Override
+	@Transactional
 	public void remover(int id) {
 		entityManager.remove(buscar(id));
+		entityManager.flush();
+	}
+	
+	public EntityManager getEntityManager() {
+		return entityManager;
 	}
 }

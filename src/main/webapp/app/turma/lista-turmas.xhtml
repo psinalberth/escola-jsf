@@ -6,10 +6,10 @@
                 xmlns:adm="http://github.com/adminfaces"
                 template="/composition/template.xhtml">
                 
- <ui:define name="title">Disciplinas</ui:define>
+ <ui:define name="title">Turmas</ui:define>
  <ui:define name="description">Pesquise de acordo com os filtros</ui:define>
  <ui:define name="body">
-   <adm:breadcrumb title="Disciplinas"/>
+   <adm:breadcrumb title="Turmas"/>
    <h:form>
    	 <div class="box box-primary">
    	   <div class="box-header with-border">
@@ -30,15 +30,10 @@
    	 </div>
      <p:dataTable value="#{listarDisciplinaBean.disciplinas}" var="disciplina" rowKey="#{disciplina.id}"
                   emptyMessage="Nenhum registro encontrado para os critérios selecionados."
-                  paginator="true" paginatorPosition="bottom" rows="5" reflow="true">
-      <f:facet name="header">
-        <p:outputPanel>
-      	  
-      	</p:outputPanel>
-      </f:facet>
+                  paginator="true" paginatorPosition="bottom">
       <p:column selectionMode="multiple" width="5%" styleClass="align-center"/>
       <p:column headerText="Código" filterBy="#{disciplina.id}" sortBy="#{disciplina.id}" filterMatchMode="contains">
-      	<h:link value="#{disciplina.id}" outcome="cadastro-disciplina.xhtml">
+      	<h:link value="#{disciplina.id}" outcome="cadastro-turma.xhtml">
        		<f:param name="id" value="#{disciplina.id}"/>	                        	
        	</h:link>
       </p:column>
