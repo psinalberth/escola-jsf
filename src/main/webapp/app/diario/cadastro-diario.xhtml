@@ -1,0 +1,62 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:adm="http://github.com/adminfaces"
+                template="/composition/template.xhtml">
+                
+  <ui:define name="title">Cadastrar Diário</ui:define>
+  <ui:define name="body">
+  	<f:metadata>
+  	  <f:viewParam name="id" value="#{formDiarioBean.id}" converter="javax.faces.Integer"></f:viewParam>
+  	  <f:event listener="#{formDiarioBean.init()}" type="preRenderView"></f:event>
+  	</f:metadata>
+    <h:form>
+     <!--  <p:growl id="growl" showDetail="true" sticky="true" /> -->
+      <div class="box box-primary">
+         <div class="box-header with-border">
+           
+           <div class="ui-fluid">
+             <div class="buttons">
+           	 <p:commandLink action="lista-diarios?faces-redirect=true">
+           	   <h:outputText styleClass="fa fa-angle-left">
+           	   </h:outputText>
+           	   
+           	 </p:commandLink>
+           	 <p:outputLabel value="Voltar"></p:outputLabel>
+           </div>
+           <p:separator style="border: 1px solid transparent"></p:separator>
+             <p:panelGrid layout="grid" columns="1">
+               
+               <p:outputLabel value="Professor" for="professor" />
+               <p:selectOneMenu id="professor" value="#{formDiarioBean.diario.professor}" converter="professorConverter">
+                  <f:selectItem itemLabel="Selecionar professor" itemValue="#{null}" noSelectionOption="true"/>
+                 <f:selectItems value="#{formDiarioBean.professores}" var="professor" itemLabel="#{professor.nome}" itemValue="#{professor}"/>
+               </p:selectOneMenu>
+               <p:message for="professor" />
+               
+               <p:outputLabel value="Disciplina" for="disciplina" />
+               <p:selectOneMenu id="disciplina" value="#{formDiarioBean.diario.disciplina}" converter="disciplinaConverter">
+                  <f:selectItem itemLabel="Selecionar disciplina" itemValue="#{null}" noSelectionOption="true"/>
+                 <f:selectItems value="#{formDiarioBean.disciplinas}" var="disciplina" itemLabel="#{disciplina.descricao}" itemValue="#{disciplina}"/>
+               </p:selectOneMenu>
+               <p:message for="disciplina" />
+               
+               <p:outputLabel value="Turma" for="turma" />
+               <p:selectOneMenu id="turma" value="#{formDiarioBean.diario.turma}" converter="turmaConverter">
+                  <f:selectItem itemLabel="Selecionar turma" itemValue="#{null}" noSelectionOption="true"/>
+                 <f:selectItems value="#{formDiarioBean.turmas}" var="turma" itemLabel="#{turma.codigo}" itemValue="#{turma}"/>
+               </p:selectOneMenu>
+               <p:message for="turma" />
+               
+               <p:separator></p:separator>
+               <p:commandButton value="Salvar" styleClass="btn-primary" update="@form" action="#{formDiarioBean.salvar()}" validateClient="true"/>
+               <p:commandButton value="Excluir" styleClass="btn-danger" action="#{formDiarioBean.remover()}" rendered="#{formDiarioBean.exclusaoPermitida}"></p:commandButton>
+             </p:panelGrid>
+           </div>
+         </div>
+      </div>
+    </h:form>
+  </ui:define>
+</ui:composition>

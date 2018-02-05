@@ -7,6 +7,8 @@
 		<class>br.ps.escola.model.Professor</class>
 		<class>br.ps.escola.model.Turma</class>
 		<class>br.ps.escola.model.Aluno</class>
+		<class>br.ps.escola.model.Diario</class>
+		<class>br.ps.escola.model.NotaDiario</class>
 		<properties>
 			<property name="hibernate.archive.autodetection" value="class, hbm"/>
 			<property name="javax.persistence.schema-generation.database.action" value="none"/>
@@ -16,7 +18,6 @@
             <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
             <property name="hibernate.enable_lazy_load_no_trans" value="true" />
             <property name="hibernate.transaction.jta.platform" value="org.hibernate.service.jta.platform.internal.JBossAppServerJtaPlatform"/>
-            
 		</properties>
 	</persistence-unit>
 </persistence>

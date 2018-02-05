@@ -27,10 +27,11 @@
            </div>
            <p:separator style="border: 1px solid transparent"></p:separator>
              <p:panelGrid layout="grid" columns="1">
-               <p:outputLabel value="Descrição" for="nome" />
+               <p:outputLabel value="Nome" for="nome" />
                <p:inputText id="nome" value="#{formAlunoBean.aluno.nome}" />
+               <p:message for="nome"></p:message>
                <p:separator></p:separator>
-               <p:commandButton value="Salvar" styleClass="btn-primary" action="#{formAlunoBean.salvar()}"/>
+               <p:commandButton value="Salvar" styleClass="btn-primary" update="@form" action="#{formAlunoBean.salvar()}" validateClient="true"/>
                <p:commandButton value="Excluir" styleClass="btn-danger" action="#{formAlunoBean.remover()}" rendered="#{formAlunoBean.exclusaoPermitida}"></p:commandButton>
              </p:panelGrid>
            </div>

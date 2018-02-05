@@ -6,11 +6,11 @@
                 xmlns:adm="http://github.com/adminfaces"
                 template="/composition/template.xhtml">
                 
-  <ui:define name="title">Cadastrar Disciplina</ui:define>
+  <ui:define name="title">Cadastrar Turma</ui:define>
   <ui:define name="body">
   	<f:metadata>
-  	  <f:viewParam name="id" value="#{formDisciplinaBean.id}" converter="javax.faces.Integer"></f:viewParam>
-  	  <f:event listener="#{formDisciplinaBean.init()}" type="preRenderView"></f:event>
+  	  <f:viewParam name="id" value="#{formTurmaBean.id}" converter="javax.faces.Integer"></f:viewParam>
+  	  <f:event listener="#{formTurmaBean.init()}" type="preRenderView"></f:event>
   	</f:metadata>
     <h:form>
       <div class="box box-primary">
@@ -18,7 +18,7 @@
            
            <div class="ui-fluid">
              <div class="buttons">
-           	 <p:commandLink action="lista-disciplinas?faces-redirect=true">
+           	 <p:commandLink action="lista-turmas?faces-redirect=true">
            	   <h:outputText styleClass="fa fa-angle-left">
            	   </h:outputText>
            	   
@@ -27,11 +27,17 @@
            </div>
            <p:separator style="border: 1px solid transparent"></p:separator>
              <p:panelGrid layout="grid" columns="1">
-               <p:outputLabel value="Descrição" for="descricao" />
-               <p:inputText id="descricao" value="#{formDisciplinaBean.disciplina.descricao}" />
-               <p:separator></p:separator>
-               <p:commandButton value="Salvar" styleClass="btn-primary" action="#{formDisciplinaBean.salvar()}"/>
-               <p:commandButton value="Excluir" styleClass="btn-danger" action="#{formDisciplinaBean.remover()}" rendered="#{formDisciplinaBean.exclusaoPermitida}"></p:commandButton>
+               <p:outputLabel value="Código" for="codigo" />
+               <p:inputText id="codigo" value="#{formTurmaBean.turma.codigo}" />
+               <p:message for="codigo" />
+               <p:outputLabel value="Ano" for="ano" />
+               <p:inputText id="ano" value="#{formTurmaBean.turma.ano}" maxlength="4">
+                 <f:convertNumber type="number"/>
+               </p:inputText>
+               <p:message for="ano" />
+               <p:separator style="border: 1px solid transparent"></p:separator>
+               <p:commandButton value="Salvar" styleClass="btn-primary" update="@form" action="#{formTurmaBean.salvar()}" validateClient="true"/>
+               <p:commandButton value="Excluir" styleClass="btn-danger" action="#{formTurmaBean.remover()}" rendered="#{formTurmaBean.exclusaoPermitida}"></p:commandButton>
              </p:panelGrid>
            </div>
          </div>

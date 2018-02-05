@@ -29,8 +29,9 @@
              <p:panelGrid layout="grid" columns="1">
                <p:outputLabel value="Nome" for="nome" />
                <p:inputText id="nome" value="#{formProfessorBean.professor.nome}" />
+               <p:message for="nome"></p:message>
                <p:separator></p:separator>
-               <p:commandButton value="Salvar" styleClass="btn-primary" action="#{formProfessorBean.salvar()}"/>
+               <p:commandButton value="Salvar" styleClass="btn-primary" update="@form" action="#{formProfessorBean.salvar()}" validateClient="true"/>
                <p:commandButton value="Excluir" styleClass="btn-danger" action="#{formProfessorBean.remover()}" rendered="#{formProfessorBean.exclusaoPermitida}"></p:commandButton>
              </p:panelGrid>
            </div>

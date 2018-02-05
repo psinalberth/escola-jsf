@@ -20,7 +20,7 @@ public class Disciplina extends EntidadeBase {
 	@Column(name="ID_DISCIPLINA", columnDefinition="TINYINT(3)")
 	private int id;
 	
-	@NotBlank
+	@NotBlank(message="A descrição não pode estar em branco.")
 	@Column(name="DESCRICAO", length=100, nullable=false)
 	private String descricao;
 	
