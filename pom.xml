@@ -2,6 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>br.ps</groupId>
   <artifactId>escola-jsf</artifactId>
+  <properties>
+    <maven.build.timestamp.format>yyyy-MM-dd</maven.build.timestamp.format>
+    <packname>-${project.version}-FL-${maven.build.timestamp}</packname>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
   <version>1.0.0-SNAPSHOT</version>
   <packaging>war</packaging>
   <dependencies>
