@@ -204,7 +204,7 @@
                 </configuration>
             </plugin>
 			<!-- Pack zips -->
-			<!-- <plugin>
+			<plugin>
 				<artifactId>maven-assembly-plugin</artifactId>
 				<version>2.2</version>
 				<executions>
@@ -224,7 +224,7 @@
 						</configuration>
 					</execution>
 				</executions>
-			</plugin> -->
+			</plugin>
 			<plugin>
 			  <groupId>org.codehaus.mojo</groupId>
 			  <artifactId>exec-maven-plugin</artifactId>
