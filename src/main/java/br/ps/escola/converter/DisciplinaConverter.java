@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import br.ps.escola.model.Disciplina;
 import br.ps.escola.repository.DisciplinaRepository;
 
-@FacesConverter(forClass=Disciplina.class, value="disciplinaConverter")
+@FacesConverter("disciplinaConverter")
 public class DisciplinaConverter implements Converter {
 	
 	@Inject

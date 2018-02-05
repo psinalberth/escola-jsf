@@ -19,12 +19,6 @@
          <p:commandButton value="Excluir Selecionado(s)" icon="fa fa-trash" styleClass="btn-danger"
          			     action="#{listarProfessorBean.removerProfessores()}"
                           process="@form" update="@form"/>
-         <p:spacer width="5"/>
-         <p:commandButton value="Olhar Selecionado(s)" 
-         				 oncomplete="PF('tarefaSelecionadas').show()"
-         				 update="@(.ui-dialog)" 
-         				 styleClass="btn-info"
-                          icon="fa fa-search"/>
          <p:separator/>
    	   </div>
    	 </div>

@@ -32,12 +32,16 @@ public class FormDisciplinaBean implements Serializable {
 		}
 	}
 	
-	public void salvar() {
+	public String salvar() {
+		
 		repository.salvar(disciplina);
+		return "lista-disciplinas?faces-redirect=true";
 	}
 	
-	public void remover() {
+	public String remover() {
+		
 		repository.remover(disciplina.getId());
+		return "lista-disciplinas?faces-redirect=true";
 	}
 	
 	public boolean isExclusaoPermitida() {

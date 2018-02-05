@@ -39,12 +39,16 @@ public class FormAlunoBean implements Serializable {
 		}
 	}
 	
-	public void salvar() {
+	public String salvar() {
+		
 		repository.salvar(aluno);
+		return "lista-alunos?faces-redirect=true";
 	}
 	
-	public void remover() {
+	public String remover() {
+		
 		repository.remover(aluno.getId());
+		return "lista-alunos?faces-redirect=true";
 	}
 	
 	public boolean isExclusaoPermitida() {

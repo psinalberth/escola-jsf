@@ -1,5 +1,6 @@
 package br.ps.escola.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -43,7 +44,7 @@ public class Diario extends EntidadeBase {
 	
 	@Valid
 	@OneToMany(fetch=FetchType.LAZY, orphanRemoval=true, mappedBy="diario")
-	private List<NotaDiario> notasDiario;
+	private List<NotaDiario> notasDiario = new ArrayList<NotaDiario>();
 
 	public int getId() {
 		return id;

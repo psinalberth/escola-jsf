@@ -9,7 +9,7 @@
  <ui:define name="title">Diários</ui:define>
  <ui:define name="description">Pesquise de acordo com os filtros</ui:define>
  <ui:define name="body">
-   <adm:breadcrumb title="diarios"/>
+   <adm:breadcrumb title="Diários"/>
    <h:form>
    	 <div class="box box-primary">
    	   <div class="box-header with-border">
@@ -44,6 +44,9 @@
       </p:column>
       <p:column headerText="Professor" filterBy="#{diario.professor.nome}" sortBy="#{diario.professor.nome}" filterMatchMode="contains">
         <h:outputLabel value="#{diario.professor.nome}" />
+      </p:column>
+      <p:column headerText="Turma" filterBy="#{diario.turma.codigo}" sortBy="#{diario.turma.codigo}" filterMatchMode="contains">
+        <h:outputLabel value="#{diario.turma.codigo}" />
       </p:column>
       <p:column headerText="Disciplina" filterBy="#{diario.disciplina.descricao}" sortBy="#{diario.disciplina.descricao}" filterMatchMode="contains">
         <h:outputLabel value="#{diario.disciplina.descricao}" />

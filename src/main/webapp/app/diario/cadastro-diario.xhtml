@@ -51,7 +51,9 @@
                <p:message for="turma" />
                
                <p:separator></p:separator>
-               <p:commandButton value="Salvar" styleClass="btn-primary" update="@form" action="#{formDiarioBean.salvar()}" validateClient="true"/>
+               <p:commandButton value="Lançar Notas" styleClass="btn-primary" update="@form" action="#{formDiarioBean.salvar()}" validateClient="true">
+                 <f:param name="id" value="#{formDiarioBean.diario.id}"></f:param>
+               </p:commandButton>
                <p:commandButton value="Excluir" styleClass="btn-danger" action="#{formDiarioBean.remover()}" rendered="#{formDiarioBean.exclusaoPermitida}"></p:commandButton>
              </p:panelGrid>
            </div>

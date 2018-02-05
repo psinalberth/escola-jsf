@@ -9,6 +9,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 @Entity
 @Table(name="NOTA_DIARIO")
@@ -37,6 +38,9 @@ public class NotaDiario extends EntidadeBase {
 	
 	@Column(name="NOTA3")
 	private Double nota3;
+	
+	@Transient
+	private boolean editavel;
 
 	public int getId() {
 		return id;
@@ -84,5 +88,13 @@ public class NotaDiario extends EntidadeBase {
 
 	public void setNota3(Double nota3) {
 		this.nota3 = nota3;
+	}
+	
+	public boolean isEditavel() {
+		return editavel;
+	}
+	
+	public void setEditavel(boolean editavel) {
+		this.editavel = editavel;
 	}
 }

@@ -32,12 +32,16 @@ public class FormTurmaBean implements Serializable {
 		}
 	}
 	
-	public void salvar() {
+	public String salvar() {
+		
 		repository.salvar(turma);
+		return "lista-turmas?faces-redirect=true";
 	}
 	
-	public void remover() {
+	public String remover() {
+		
 		repository.remover(turma.getId());
+		return "lista-turmas?faces-redirect=true";
 	}
 	
 	public boolean isExclusaoPermitida() {

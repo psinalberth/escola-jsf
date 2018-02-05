@@ -54,8 +54,11 @@ public class FormDiarioBean implements Serializable {
 		}
 	}
 	
-	public void salvar() {
+	public String salvar() {
+		
 		repository.salvar(diario);
+		
+		return "cadastro-nota.xhtml?id=" + diario.getId() + "faces-redirect=true";
 	}
 	
 	public void remover() {

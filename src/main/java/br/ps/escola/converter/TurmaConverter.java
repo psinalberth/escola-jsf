@@ -9,7 +9,7 @@ import javax.inject.Inject;
 import br.ps.escola.model.Turma;
 import br.ps.escola.repository.TurmasRepository;
 
-@FacesConverter(forClass=Turma.class, value="turmaConverter")
+@FacesConverter("turmaConverter")
 public class TurmaConverter implements Converter {
 	
 	@Inject

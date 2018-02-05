@@ -39,12 +39,18 @@ public class FormProfessorBean implements Serializable {
 		}
 	}
 	
-	public void salvar() {
+	public String salvar() {
+		
 		repository.salvar(professor);
+		
+		return "lista-professores?faces-redirect=true";
 	}
 	
-	public void remover() {
+	public String remover() {
+		
 		repository.remover(professor.getId());
+		
+		return "lista-professores?faces-redirect=true";
 	}
 	
 	public boolean isExclusaoPermitida() {
