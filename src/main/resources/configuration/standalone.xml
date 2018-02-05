@@ -160,6 +160,7 @@
                     <security>
                         <user-name>bc640557793a4e</user-name>
                         <password>8a7f0ca1</password>
+                    </security>
                 </datasource>
                 <drivers>
                     <driver name="h2" module="com.h2database.h2">
