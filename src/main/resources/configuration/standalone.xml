@@ -149,6 +149,7 @@
                     </security>
                 </datasource>
                 <datasource jndi-name="java:jboss/datasources/EscolaDS" pool-name="EscolaDS" enabled="true" use-java-context="true">
+<<<<<<< HEAD
                     <connection-url>jdbc:mysql://us-cdbr-iron-east-05.cleardb.net/heroku_7477531fecb4de3?reconnect=true</connection-url>
                     <driver>mysql</driver>
                     <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
@@ -160,6 +161,19 @@
                     <security>
                         <user-name>bc640557793a4e</user-name>
                         <password>8a7f0ca1</password>
+=======
+                    <connection-url>jdbc:mysql://localhost:3306/escola?autoReconnect=true</connection-url>
+                    <driver>mysql</driver>
+                    <transaction-isolation>TRANSACTION_READ_COMMITTED</transaction-isolation>
+                    <pool>
+                        <min-pool-size>1</min-pool-size>
+                        <max-pool-size>20</max-pool-size>
+                        <prefill>true</prefill>
+                    </pool>
+                    <security>
+                        <user-name>root</user-name>
+                        <password>q3vgvj7z</password>
+>>>>>>> branch 'master' of https://github.com/psinalberth/escola-jsf.git
                     </security>
                 </datasource>
                 <drivers>
