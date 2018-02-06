@@ -1,9 +1,5 @@
 package br.ps.escola.bean;
 
-import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-
 import javax.inject.Inject;
 import javax.inject.Named;
 
@@ -14,68 +10,65 @@ import br.ps.escola.model.Diario;
 import br.ps.escola.model.NotaDiario;
 import br.ps.escola.repository.AlunosRepository;
 import br.ps.escola.repository.DiarioRepository;
+import br.ps.escola.repository.NotasRepository;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @Named
 @ViewScoped
 public class FormNotasDiarioBean implements Serializable {
-
+	
 	private static final long serialVersionUID = -4477439660293588675L;
 	
 	@Inject
-	private DiarioRepository repository;
+	private DiarioRepository diarioRepository;
 	
 	@Inject
 	private AlunosRepository alunosRepository;
 	
+	@Inject
+	private NotasRepository repository;
+	
 	private Integer id;
-	private Diario diario;
+	private Integer diarioId;
 	private NotaDiario notaDiario;
+	private Diario diario;
 	
 	public void init() {
 		
+		diario = diarioRepository.buscar(diarioId);
+		
 		if (id != null) {
-			diario = repository.buscar(id);
+			notaDiario = repository.buscar(id);
+			
+		} else {
+			
+			notaDiario = new NotaDiario();
+			notaDiario.setDiario(diario);
 		}
-	}
-	
-	public String adicionarNota() {
-		
-		if (diario.getNotasDiario() == null) {
-			diario.setNotasDiario(new ArrayList<NotaDiario>());
-		}
-		
-		NotaDiario notaDiario = new NotaDiario();
-		notaDiario.setDiario(diario);
-		notaDiario.setEditavel(true);
-		diario.getNotasDiario().add(notaDiario);
-		
-		return null;
 	}
 	
 	public void salvar() {
-		repository.salvar(diario);
+		
+		if (notaDiario != null && notaDiario.getId() == 0) {
+		   
+			if (diario.getNotasDiario() == null) {
+				diario.setNotasDiario(new ArrayList<NotaDiario>());
+				
+			}
+			
+			diario.getNotasDiario().add(notaDiario);
+			diarioRepository.salvar(diario);
+			
+		} else {
+			diarioRepository.salvar(notaDiario.getDiario());
+		}
 	}
 	
 	public void remover() {
-		repository.remover(diario.getId());
-	}
-	
-	public String editar(NotaDiario notaDiario) {
 		
-		notaDiario.setEditavel(true);
-		return null;
-	}
-	
-	public String finalizarEdicao(NotaDiario notaDiario) {
-		
-		notaDiario.setEditavel(false);
-		repository.salvar(diario);
-		
-		return null;
-	}
-	
-	public boolean isExclusaoPermitida() {
-		return repository.isExclusaoPermitida(diario.getId());
 	}
 	
 	public Integer getId() {
@@ -84,6 +77,14 @@ public class FormNotasDiarioBean implements Serializable {
 	
 	public void setId(Integer id) {
 		this.id = id;
+	}
+	
+	public Integer getDiarioId() {
+		return diarioId;
+	}
+	
+	public void setDiarioId(Integer diarioId) {
+		this.diarioId = diarioId;
 	}
 	
 	public Diario getDiario() {
